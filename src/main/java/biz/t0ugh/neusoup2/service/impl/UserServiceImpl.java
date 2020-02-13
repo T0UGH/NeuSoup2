@@ -4,10 +4,12 @@ import biz.t0ugh.neusoup2.mapper.UserMapper;
 import biz.t0ugh.neusoup2.pojo.User;
 import biz.t0ugh.neusoup2.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Resource
