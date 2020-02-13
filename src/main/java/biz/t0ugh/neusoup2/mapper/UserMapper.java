@@ -9,17 +9,18 @@ public interface UserMapper {
     User getUser(int userId);
 
     @Insert("insert into user(user_name, user_password, user_avator, user_sex, user_note) " +
-            "value(#{userName}, #{userPassword}, #{userAvator}, #{userSex}, #{userNote}")
+            "value(#{userName}, #{userPassword}, #{userAvator}, #{userSex}, #{userNote})")
+    @Options(useGeneratedKeys=true, keyProperty = "userId", keyColumn = "user_id")
     int insertUser(User user);
 
     @Delete("delete from user where user_id = #{userId}")
     int deleteUser(User user);
 
-    @Update("update user set" +
-            "user_name = #{userName}" +
-            "user_password = #{userPassword}" +
-            "user_avator = #{userAvator}" +
-            "user_sex = #{userSex}" +
+    @Update("update user set " +
+            "user_name = #{userName}," +
+            "user_password = #{userPassword}," +
+            "user_avator = #{userAvator}," +
+            "user_sex = #{userSex}," +
             "user_note = #{userNote}" +
             "where user_id = #{userId}")
     int updateUser(User user);

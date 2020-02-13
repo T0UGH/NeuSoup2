@@ -1,4 +1,4 @@
-package biz.t0ugh.neusoup2.main;
+package biz.t0ugh.neusoup2;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
