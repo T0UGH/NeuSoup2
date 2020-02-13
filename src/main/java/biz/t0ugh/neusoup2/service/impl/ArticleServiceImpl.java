@@ -37,12 +37,12 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<Article> rankArticleByLike(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return rankArticleByLike(pageNum, pageSize);
+        return articleMapper.rankArticleByLike();
     }
 
     @Override
     public List<Article> rankArticleByTime(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return rankArticleByTime(pageNum, pageSize);
+        return articleMapper.rankArticleByTime();
     }
 }

@@ -9,6 +9,6 @@ public interface ArticleService {
     public int insertArticle(Article article);
     public int updateArticle(Article article);
     public int deleteArticle(Article article);
-    public List<Article> rankArticleByLike(int offset, int limit);
-    public List<Article> rankArticleByTime(int offset, int limit);
+    public List<Article> rankArticleByLike(int pageNum, int pageSize);
+    public List<Article> rankArticleByTime(int pageNum, int pageSize);
 }

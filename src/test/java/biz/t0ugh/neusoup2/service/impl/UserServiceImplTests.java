@@ -4,7 +4,6 @@ import biz.t0ugh.neusoup2.Neusoup2ApplicationTests;
 import biz.t0ugh.neusoup2.pojo.User;
 import biz.t0ugh.neusoup2.service.UserService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

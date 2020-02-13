@@ -1,11 +1,11 @@
 package biz.t0ugh.neusoup2.pojo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Article {
     private int articleId;
     private int userId;
-    private Date articleTime;
+    private Timestamp articleTime;
     private String articleContent;
     private int articleLike;
     private int articleUnlike;
@@ -30,11 +30,11 @@ public class Article {
         this.userId = userId;
     }
 
-    public Date getArticleTime() {
+    public Timestamp getArticleTime() {
         return articleTime;
     }
 
-    public void setArticleTime(Date articleTime) {
+    public void setArticleTime(Timestamp articleTime) {
         this.articleTime = articleTime;
     }
 

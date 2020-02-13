@@ -18,7 +18,7 @@ public interface ArticleMapper {
 
 
     @Update("update article set " +
-            "article_name = #{articleName}," +
+            "user_id = #{userId}," +
             "article_time = #{articleTime}," +
             "article_content = #{articleContent}," +
             "article_like = #{articleUnlike}," +
