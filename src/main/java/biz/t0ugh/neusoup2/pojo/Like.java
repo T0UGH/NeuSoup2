@@ -1,10 +1,11 @@
 package biz.t0ugh.neusoup2.pojo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Like {
     private int likeId;
-    private Date likeDate;
+    private Timestamp likeDate;
     private int userId;
     private int articleId;
 
@@ -19,11 +20,11 @@ public class Like {
         this.likeId = likeId;
     }
 
-    public Date getLikeDate() {
+    public Timestamp getLikeDate() {
         return likeDate;
     }
 
-    public void setLikeDate(Date likeDate) {
+    public void setLikeDate(Timestamp likeDate) {
         this.likeDate = likeDate;
     }
 

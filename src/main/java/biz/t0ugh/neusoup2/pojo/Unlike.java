@@ -1,10 +1,10 @@
 package biz.t0ugh.neusoup2.pojo;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Unlike {
     private int unlikeId;
-    private Date unlikeDate;
+    private Timestamp unlikeDate;
     private int userId;
     private int articleId;
 
@@ -19,11 +19,11 @@ public class Unlike {
         this.unlikeId = unlikeId;
     }
 
-    public Date getUnlikeDate() {
+    public Timestamp getUnlikeDate() {
         return unlikeDate;
     }
 
-    public void setUnlikeDate(Date unlikeDate) {
+    public void setUnlikeDate(Timestamp unlikeDate) {
         this.unlikeDate = unlikeDate;
     }
 
