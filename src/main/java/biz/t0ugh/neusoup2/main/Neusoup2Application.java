@@ -1,4 +1,4 @@
-package biz.t0ugh.neusoup2;
+package biz.t0ugh.neusoup2.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
