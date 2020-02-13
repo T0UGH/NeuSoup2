@@ -21,7 +21,8 @@ public interface ArticleMapper {
             "user_id = #{userId}," +
             "article_time = #{articleTime}," +
             "article_content = #{articleContent}," +
-            "article_like = #{articleUnlike}," +
+            "article_like = #{articleLike}," +
+            "article_unlike = #{articleUnlike}," +
             "article_tags = #{articleTags}" +
             "where article_id = #{articleId}")
     public int updateArticle(Article article);

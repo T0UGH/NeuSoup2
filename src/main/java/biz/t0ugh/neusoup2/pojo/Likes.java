@@ -2,29 +2,29 @@ package biz.t0ugh.neusoup2.pojo;
 
 import java.sql.Timestamp;
 
-public class Unlike {
-    private int unlikeId;
-    private Timestamp unlikeDate;
+public class Likes {
+    private int likeId;
+    private Timestamp likeTime;
     private int userId;
     private int articleId;
 
-    public Unlike() {
+    public Likes() {
     }
 
-    public int getUnlikeId() {
-        return unlikeId;
+    public int getLikeId() {
+        return likeId;
     }
 
-    public void setUnlikeId(int unlikeId) {
-        this.unlikeId = unlikeId;
+    public void setLikeId(int likeId) {
+        this.likeId = likeId;
     }
 
-    public Timestamp getUnlikeDate() {
-        return unlikeDate;
+    public Timestamp getLikeTime() {
+        return likeTime;
     }
 
-    public void setUnlikeDate(Timestamp unlikeDate) {
-        this.unlikeDate = unlikeDate;
+    public void setLikeTime(Timestamp likeTime) {
+        this.likeTime = likeTime;
     }
 
     public int getUserId() {

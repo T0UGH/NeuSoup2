@@ -3,7 +3,7 @@ package biz.t0ugh.neusoup2.service.impl;
 import biz.t0ugh.neusoup2.mapper.ArticleMapper;
 import biz.t0ugh.neusoup2.mapper.LikeMapper;
 import biz.t0ugh.neusoup2.pojo.Article;
-import biz.t0ugh.neusoup2.pojo.Like;
+import biz.t0ugh.neusoup2.pojo.Likes;
 import biz.t0ugh.neusoup2.service.LikeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,39 +23,39 @@ public class LikeServiceImpl implements LikeService {
     private ArticleMapper articleMapper;
 
     @Override
-    public Like getLike(int likeId) {
+    public Likes getLike(int likeId) {
         return likeMapper.getLike(likeId);
     }
 
     @Override
-    public int insertLike(Like like) throws SQLException {
-        Article article = articleMapper.getArticle(like.getArticleId());
+    public int insertLike(Likes likes) throws SQLException {
+        Article article = articleMapper.getArticle(likes.getArticleId());
         if(article == null){
-            throw new SQLException("article[" + like.getArticleId() +"] not found");
+            throw new SQLException("article[" + likes.getArticleId() +"] not found");
         }
         article.setArticleLike(article.getArticleLike() + 1);
         articleMapper.updateArticle(article);
-        return likeMapper.insertLike(like);
+        return likeMapper.insertLike(likes);
     }
 
     @Override
-    public int deleteLike(Like like) throws SQLException {
-        Article article = articleMapper.getArticle(like.getArticleId());
+    public int deleteLike(Likes likes) throws SQLException {
+        Article article = articleMapper.getArticle(likes.getArticleId());
         if(article == null){
-            throw new SQLException("article[" + like.getArticleId() +"] not found");
+            throw new SQLException("article[" + likes.getArticleId() +"] not found");
         }
         article.setArticleLike(article.getArticleLike() - 1);
         articleMapper.updateArticle(article);
-        return likeMapper.deleteLike(like);
+        return likeMapper.deleteLike(likes);
     }
 
     @Override
-    public List<Like> findLikeByUserId(int userId) {
+    public List<Likes> findLikeByUserId(int userId) {
         return likeMapper.findLikeByUserId(userId);
     }
 
     @Override
-    public List<Like> findLikeByArticleId(int articleId) {
+    public List<Likes> findLikeByArticleId(int articleId) {
         return likeMapper.findLikeByArticleId(articleId);
     }
 }
