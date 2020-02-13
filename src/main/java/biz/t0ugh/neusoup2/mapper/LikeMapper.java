@@ -23,4 +23,7 @@ public interface LikeMapper {
 
     @Select("select * from like where user_id = #{userId}")
     public List<Like> findLikeByUserId(int userId);
+
+    @Select("select * from like where article_id = #{articleId}")
+    public List<Like> findLikeByArticleId(int articleId);
 }
