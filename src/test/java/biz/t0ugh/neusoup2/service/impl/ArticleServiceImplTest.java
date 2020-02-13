@@ -84,7 +84,7 @@ class ArticleServiceImplTest extends Neusoup2ApplicationTests {
     void rankArticleByTime() {
 
         for (Article article:articleList) {
-            logger.debug(article.getArticleTime().toString());
+            logger.info(article.getArticleTime().toString());
             articleService.insertArticle(article);
         }
 
