@@ -8,7 +8,7 @@ public class Comment {
     private int userId;
     private Date commentTime;
     private int commentRef;
-    private int commentContent;
+    private String commentContent;
 
     public Comment() {
     }
@@ -45,7 +45,7 @@ public class Comment {
         this.commentTime = commentTime;
     }
 
-    public int getCommentRef() {
+    public Integer getCommentRef() {
         return commentRef;
     }
 
@@ -53,11 +53,11 @@ public class Comment {
         this.commentRef = commentRef;
     }
 
-    public int getCommentContent() {
+    public String getCommentContent() {
         return commentContent;
     }
 
-    public void setCommentContent(int commentContent) {
+    public void setCommentContent(String commentContent) {
         this.commentContent = commentContent;
     }
 }
