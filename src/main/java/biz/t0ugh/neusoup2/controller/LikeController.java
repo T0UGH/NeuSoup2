@@ -14,13 +14,13 @@ public class LikeController {
     private LikeService likeService;
 
     @PostMapping("/like")
-    public Likes insertLike(Likes likes) throws SQLException {
+    public Likes insertLike(@RequestBody Likes likes) throws SQLException {
         likeService.insertLike(likes);
         return likes;
     }
 
     @DeleteMapping("/like")
-    public Likes deleteLike(Likes likes) throws SQLException {
+    public Likes deleteLike(@RequestBody Likes likes) throws SQLException {
         likeService.deleteLike(likes);
         return likes;
     }

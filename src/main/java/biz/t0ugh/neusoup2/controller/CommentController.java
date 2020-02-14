@@ -20,19 +20,19 @@ public class CommentController {
     }
 
     @PostMapping("/comment")
-    public Comment insertComment(Comment comment){
+    public Comment insertComment(@RequestBody Comment comment){
         commentService.insertComment(comment);
         return comment;
     }
 
     @PutMapping("/comment")
-    public Comment updateCommentContent(Comment comment) throws SQLException {
+    public Comment updateCommentContent(@RequestBody Comment comment) throws SQLException {
         commentService.updateCommentContent(comment);
         return comment;
     }
 
     @DeleteMapping("/comment")
-    public Comment deleteComment(Comment comment){
+    public Comment deleteComment(@RequestBody Comment comment){
         commentService.deleteComment(comment);
         return comment;
     }

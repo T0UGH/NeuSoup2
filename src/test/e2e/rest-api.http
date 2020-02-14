@@ -1,0 +1,13 @@
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+  "userName": "小明",
+  "userPassword":"123456abc",
+  "userAvator": "https://avatars1.githubusercontent.com/u/33653960?s=400&u=6a678f370010506fa8864e65bd2955d18c4e105d&v=4",
+  "userSex": 1,
+  "userNote": "test"
+}
+
+###
+

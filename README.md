@@ -31,3 +31,11 @@
 2. `POJO`的生成 + `Mapper`层 + `Service`层 + `ServiceTest`
 
 3. `Controller`层 + `HttpClient`测试
+
+#### 4 TODO
+
+- [ ] `session`填补`userId`，而不是直接传递`userId`(不安全)
+- [ ] `controller`的异常处理设计，资源没有找到，登录过期，内部抛出异常
+- [ ] 各种`service`的异常情况处理设计
+- [ ] 使用`MockMVC`对controller进行单元测试
+

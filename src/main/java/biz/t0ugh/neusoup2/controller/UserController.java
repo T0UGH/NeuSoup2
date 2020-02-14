@@ -13,7 +13,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/user/login")
-    public User login(User user){
+    public User login(@RequestBody User user){
         if(userService.login(user))
             return user;
         else
@@ -22,19 +22,19 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public User register(User user){
+    public User register(@RequestBody User user){
         userService.register(user);
         return user;
     }
 
     @DeleteMapping("/user")
-    public User deleteUser(User user){
+    public User deleteUser(@RequestBody User user){
         userService.deleteUser(user);
         return user;
     }
 
     @PutMapping("/user")
-    public User updateUser(User user){
+    public User updateUser(@RequestBody User user){
         userService.updateUser(user);
         return user;
     }
