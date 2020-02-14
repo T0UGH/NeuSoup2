@@ -2,10 +2,10 @@ package biz.t0ugh.neusoup2.service.impl;
 
 import biz.t0ugh.neusoup2.Neusoup2ApplicationTests;
 import biz.t0ugh.neusoup2.pojo.Article;
-import biz.t0ugh.neusoup2.pojo.Likes;
+import biz.t0ugh.neusoup2.pojo.Unlikes;
 import biz.t0ugh.neusoup2.pojo.User;
 import biz.t0ugh.neusoup2.service.ArticleService;
-import biz.t0ugh.neusoup2.service.LikeService;
+import biz.t0ugh.neusoup2.service.UnlikeService;
 import biz.t0ugh.neusoup2.service.UserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +21,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Transactional
-class LikesServiceImplTest extends Neusoup2ApplicationTests {
+class UnlikeServiceImplTest extends Neusoup2ApplicationTests {
 
     @Resource
     UserService userService;
@@ -30,13 +30,13 @@ class LikesServiceImplTest extends Neusoup2ApplicationTests {
     ArticleService articleService;
 
     @Resource
-    LikeService likeService;
+    UnlikeService unlikeService;
 
     private User user;
 
     private Article article;
 
-    private Likes likes;
+    private Unlikes unlikes;
 
     @BeforeEach
     void setUp() {
@@ -57,56 +57,54 @@ class LikesServiceImplTest extends Neusoup2ApplicationTests {
         article.setArticleUnlike(1);
         articleService.insertArticle(article);
 
-        likes = new Likes();
-        likes.setArticleId(article.getArticleId());
-        likes.setUserId(user.getUserId());
-        likes.setLikeTime(new Timestamp(System.currentTimeMillis()));
+        unlikes = new Unlikes();
+        unlikes.setArticleId(article.getArticleId());
+        unlikes.setUserId(article.getUserId());
+        unlikes.setUnlikeTime(new Timestamp(System.currentTimeMillis()));
     }
 
     @AfterEach
-    void tearDown(){
+    void tearDown() {
         userService.deleteUser(user);
         articleService.deleteArticle(article);
     }
 
     @Test
-    void insertLikeAndDeleteLike() {
+    void insertUnlikeAndDeleteUnlike() {
         try {
-            int likeNum = article.getArticleLike();
-            likeService.insertLike(likes);
-            Likes dbLikes = likeService.getLike(likes.getLikeId());
-            assertNotNull(dbLikes);
+            int unlikeNum = article.getArticleUnlike();
+            unlikeService.insertUnlike(unlikes);
+            Unlikes dbUnlikes = unlikeService.getUnlike(unlikes.getUnlikeId());
+            assertNotNull(dbUnlikes);
 
             article = articleService.getArticle(article.getArticleId());
-            assertEquals(article.getArticleLike(), likeNum + 1);
+            assertEquals(article.getArticleUnlike(), unlikeNum + 1);
 
-            likeNum = article.getArticleLike();
-            likeService.deleteLike(likes);
-            dbLikes = likeService.getLike(likes.getLikeId());
-            assertNull(dbLikes);
+            unlikeNum = article.getArticleUnlike();
+            unlikeService.deleteUnlike(unlikes);
+            dbUnlikes = unlikeService.getUnlike(unlikes.getUnlikeId());
+            assertNull(dbUnlikes);
             article = articleService.getArticle(article.getArticleId());
-            assertEquals(article.getArticleLike(), likeNum - 1);
-
+            assertEquals(article.getArticleUnlike(), unlikeNum - 1);
         } catch (SQLException e) {
             fail("Exception: " + e.getMessage());
         }
     }
 
     @Test
-    void findLikeByUserIdAndFindLikeByArticleId() {
+    void findUnlikeByUserIdAndFindUnlikeByArticleId() {
         try {
-            likeService.insertLike(likes);
+            unlikeService.insertUnlike(unlikes);
 
-            List<Likes> likesList = likeService.findLikeByUserId(likes.getUserId());
-            assertNotEquals(0, likesList.size());
+            List<Unlikes> unlikesList = unlikeService.findUnlikeByArticleId(unlikes.getArticleId());
+            assertNotEquals(0, unlikesList.size());
 
-            likesList = likeService.findLikeByArticleId(likes.getArticleId());
-            assertNotEquals(0, likesList.size());
+            unlikesList = unlikeService.findUnlikeByUserId(unlikes.getUserId());
+            assertNotEquals(0, unlikesList.size());
 
-            likeService.deleteLike(likes);
+            unlikeService.deleteUnlike(unlikes);
         } catch (SQLException e) {
             fail("Exception: " + e.getMessage());
         }
     }
-
 }
