@@ -17,15 +17,15 @@ public interface CommentMapper {
     public int insertComment(Comment comment);
 
     @Update("update comment set " +
-            "comment_content = #{commentContent}" +
-            "user_id = #{userId}" +
-            "article_id = #{articleId}" +
-            "comment_time = #{commentTime}" +
-            "comment_ref = #{commentRef}" +
+            "comment_content = #{commentContent}, " +
+            "user_id = #{userId}, " +
+            "article_id = #{articleId}, " +
+            "comment_time = #{commentTime}, " +
+            "comment_ref = #{commentRef} " +
             "where comment_id = #{commentId}")
     public int updateComment(Comment comment);
 
-    @Delete("delete from comment where comment_id = #{comment_id}")
+    @Delete("delete from comment where comment_id = #{commentId}")
     public int deleteComment(Comment comment);
 
     @Select("select * from comment where user_id = #{userId}")

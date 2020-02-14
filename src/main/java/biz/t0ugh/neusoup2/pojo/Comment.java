@@ -1,12 +1,13 @@
 package biz.t0ugh.neusoup2.pojo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Comment {
     private int commentId;
     private int articleId;
     private int userId;
-    private Date commentTime;
+    private Timestamp commentTime;
     private int commentRef;
     private String commentContent;
 
@@ -37,11 +38,11 @@ public class Comment {
         this.userId = userId;
     }
 
-    public Date getCommentTime() {
+    public Timestamp getCommentTime() {
         return commentTime;
     }
 
-    public void setCommentTime(Date commentTime) {
+    public void setCommentTime(Timestamp commentTime) {
         this.commentTime = commentTime;
     }
 
