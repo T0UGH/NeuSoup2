@@ -39,21 +39,21 @@ public class CommentController {
 
     @GetMapping("/comments/comment/count/{commentRef}")
     public int countCommentByCommentRef(@PathVariable("commentRef") int commentRef){
-        return countCommentByCommentRef(commentRef);
+        return commentService.countCommentByCommentRef(commentRef);
     }
 
     @GetMapping("/comments/comment/{commentRef}")
     public List<Comment> findCommentByCommentRef(@PathVariable("commentRef") int commentRef){
-        return findCommentByCommentRef(commentRef);
+        return commentService.findCommentByCommentRef(commentRef);
     }
 
     @GetMapping("/comments/user/{userId}")
     public List<Comment> findCommentByUserId(@PathVariable("userId") int userId){
-        return findCommentByUserId(userId);
+        return commentService.findCommentByUserId(userId);
     }
 
     @GetMapping("/comments/article/{articleId}")
     public List<Comment> findCommentByArticleId(@PathVariable("articleId") int articleId){
-        return findCommentByArticleId(articleId);
+        return commentService.findCommentByArticleId(articleId);
     }
 }
